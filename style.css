@@ -30,6 +30,7 @@ html, body {
     font-variation-settings: 'wght' 300, 'slnt' 0;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    scrollbar-gutter: stable;
 }
 
 /* ==========================================================================
@@ -1298,6 +1299,13 @@ html.lenis, html.lenis body {
     font-size: 0.9rem;
     line-height: 1.6;
     color: var(--accent-pewter);
+}
+
+.pdp-related {
+    padding: 8vh 4% 12vh;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 /* ==========================================================================
