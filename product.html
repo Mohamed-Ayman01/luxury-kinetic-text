@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VÉLOURS / ATELIER — Product Details</title>
+    <!-- Google Fonts: Inter Variable & Syne -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="loaded">
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"><span id="cursor-text"></span></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-brand magnetic" data-cursor="VÉLOURS"><a href="index.html" style="color:inherit; text-decoration:none;">VÉLOURS / ATELIER</a></div>
+        <nav class="nav-links">
+            <a href="index.html#campaign" class="nav-link magnetic" data-cursor="VIEW">CAMPAIGN</a>
+            <a href="index.html#lookbook" class="nav-link magnetic" data-cursor="VIEW">LOOKBOOK</a>
+            <a href="index.html#craftsmanship" class="nav-link magnetic" data-cursor="VIEW">SAVOIR-FAIRE</a>
+            <a href="index.html#atelier" class="nav-link magnetic" data-cursor="VIEW">ATELIER</a>
+            <a href="index.html#archive" class="nav-link magnetic" data-cursor="VIEW">ARCHIVE</a>
+            <a href="#cart" id="open-cart-btn" class="nav-link magnetic" data-cursor="BAG">BAG [0]</a>
+        </nav>
+        <button class="mobile-nav-toggle" id="mobile-nav-open" aria-label="Open Menu">☰</button>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close Menu">✕</button>
+        <a href="index.html#campaign" class="mobile-menu-link">CAMPAIGN</a>
+        <a href="index.html#lookbook" class="mobile-menu-link">LOOKBOOK</a>
+        <a href="index.html#craftsmanship" class="mobile-menu-link">SAVOIR-FAIRE</a>
+        <a href="index.html#atelier" class="mobile-menu-link">ATELIER</a>
+        <a href="index.html#archive" class="mobile-menu-link">ARCHIVE</a>
+        <a href="#cart" id="mobile-open-cart-btn" class="mobile-menu-link">BAG</a>
+    </div>
+
+    <!-- Main Product Detail Container -->
+    <main class="page-content pdp-main">
+        <div class="pdp-breadcrumb">
+            <a href="index.html#lookbook">ARCHIVE</a> / <span id="pdp-sku-crumb">VL-001</span>
+        </div>
+
+        <section class="pdp-container">
+            <!-- Left Gallery Column (Single Image) -->
+            <div class="pdp-gallery">
+                <div class="pdp-main-image-frame" data-cursor="ZOOM">
+                    <img id="pdp-main-image" src="" alt="Product Main Image" style="opacity: 0; transition: opacity 0.5s ease;">
+                </div>
+            </div>
+
+            <!-- Right Info & Purchase Details Column -->
+            <div class="pdp-info">
+                <span class="pdp-tag">AUTUMN / WINTER 2026</span>
+                <h1 id="pdp-title" class="pdp-title"></h1>
+                <div id="pdp-price" class="pdp-price"></div>
+                
+                <p id="pdp-desc" class="pdp-description"></p>
+
+                <!-- Size Selector -->
+                <div class="pdp-option-group">
+                    <div class="option-label">
+                        <span>SELECT SIZE (EU)</span>
+                    </div>
+                    <div class="size-options">
+                        <button class="size-btn active">46</button>
+                        <button class="size-btn">48</button>
+                        <button class="size-btn">50</button>
+                        <button class="size-btn">52</button>
+                    </div>
+                </div>
+
+                <!-- Quantity Selector -->
+                <div class="pdp-option-group">
+                    <div class="option-label">
+                        <span>QUANTITY</span>
+                    </div>
+                    <div class="qty-control">
+                        <button id="qty-minus" class="qty-btn">-</button>
+                        <span id="qty-val">1</span>
+                        <button id="qty-plus" class="qty-btn">+</button>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="pdp-actions">
+                    <button id="pdp-add-btn" class="btn-pdp-primary magnetic" data-cursor="ADD">ADD TO BAG</button>
+                </div>
+
+                <!-- Details Accordion -->
+                <div class="pdp-accordions">
+                    <details class="accordion-item" open>
+                        <summary>MATERIALS & ORIGIN <span>+</span></summary>
+                        <div class="accordion-content">
+                            <p id="pdp-materials"></p>
+                        </div>
+                    </details>
+                    <details class="accordion-item">
+                        <summary>FIT & MEASUREMENTS <span>+</span></summary>
+                        <div class="accordion-content">
+                            <p id="pdp-fit"></p>
+                        </div>
+                    </details>
+                    <details class="accordion-item">
+                        <summary>COMPLIMENTARY SHIPPING & RETURNS <span>+</span></summary>
+                        <div class="accordion-content">
+                            <p>Express global courier shipping via DHL. Complimentary 14-day international returns and exchanges included with all orders.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Pieces Section -->
+        <section class="pdp-related">
+            <div class="section-header">
+                <span class="section-num">RECOMMENDED</span>
+                <h2 class="section-title">COMPLEMENTARY PIECES</h2>
+            </div>
+            <div class="lookbook-grid spotlight-grid">
+                <div class="lookbook-item reveal-card spotlight-item" data-cursor="EXPLORE">
+                    <div class="image-wrapper fade-switch">
+                        <img class="img-primary" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80" alt="Blazer">
+                        <a href="product.html?id=VL-002" class="btn-view-product">VIEW PRODUCT</a>
+                    </div>
+                    <div class="item-meta">
+                        <span class="item-code">VL-002 / BLAZER</span>
+                        <span class="item-price">$1,350 USD</span>
+                    </div>
+                    <button class="add-to-bag">ADD TO BAG</button>
+                </div>
+                <div class="lookbook-item reveal-card spotlight-item" data-cursor="EXPLORE">
+                    <div class="image-wrapper fade-switch">
+                        <img class="img-primary" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Cashmere Knit">
+                        <a href="product.html?id=VL-003" class="btn-view-product">VIEW PRODUCT</a>
+                    </div>
+                    <div class="item-meta">
+                        <span class="item-code">VL-003 / CASHMERE KNIT</span>
+                        <span class="item-price">$720 USD</span>
+                    </div>
+                    <button class="add-to-bag">ADD TO BAG</button>
+                </div>
+                <div class="lookbook-item reveal-card spotlight-item" data-cursor="EXPLORE">
+                    <div class="image-wrapper fade-switch">
+                        <img class="img-primary" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=800&q=80" alt="Trouser">
+                        <a href="product.html?id=VL-006" class="btn-view-product">VIEW PRODUCT</a>
+                    </div>
+                    <div class="item-meta">
+                        <span class="item-code">VL-006 / TAILORED TROUSER</span>
+                        <span class="item-price">$640 USD</span>
+                    </div>
+                    <button class="add-to-bag">ADD TO BAG</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer id="contact" class="prestige-footer">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <h4>JOIN THE INNER CIRCLE</h4>
+                    <p>Receive private invitations to archival drops and runway presentations.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="ENTER PRIVATE EMAIL" required>
+                        <button type="submit" class="magnetic" data-cursor="SUBMIT">→</button>
+                    </form>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>INQUIRIES</h4>
+                    <span>INFO@VELOURS-ATELIER.COM</span>
+                    <span>CAREERS@VELOURS-ATELIER.COM</span>
+                    <span>+33 1 40 20 50 50</span>
+                    <span>MON - FRI / 9AM - 6PM</span>
+                </div>
+                <div class="footer-col links-col">
+                    <h4>BOUTIQUES</h4>
+                    <span>PARIS: 14 RUE DU FAUBOURG</span>
+                    <span>TOKYO: AOYAMA 5-7-2</span>
+                    <span>NEW YORK: SOHO MERCER ST</span>
+                </div>
+            </div>
+            <div class="footer-kinetic-wrap">
+                <div class="kinetic-footer-text" data-cursor="VÉLOURS">VÉLOURS ATELIER</div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 VÉLOURS / ATELIER. ALL RIGHTS RESERVED.</span>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Shopping Bag Slide-out Panel -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div id="cart-panel" class="cart-panel">
+        <div class="cart-header">
+            <h3>YOUR BAG</h3>
+            <button id="close-cart" class="magnetic" data-cursor="CLOSE">✕</button>
+        </div>
+        <div class="cart-items" id="cart-items-container" data-lenis-prevent>
+            <div class="empty-cart-msg">Your bag is currently empty.</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>SUBTOTAL</span>
+                <span id="cart-total-price">$0 USD</span>
+            </div>
+            <div class="cart-shipping-note">Complimentary global shipping and returns on all orders.</div>
+            <button class="btn-checkout magnetic" data-cursor="SECURE">PROCEED TO SECURE CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VÉLOURS / ATELIER — Secure Checkout</title>
+    <!-- Google Fonts: Inter Variable & Syne -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="loaded checkout-body">
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"><span id="cursor-text"></span></div>
+
+    <!-- Minimalist Checkout Header -->
+    <header class="checkout-header">
+        <div class="nav-brand"><a href="index.html" style="color:inherit; text-decoration:none;">VÉLOURS / ATELIER</a></div>
+        <div class="checkout-secure-badge">🔒 SECURE 256-BIT ENCRYPTED CHECKOUT</div>
+    </header>
+
+    <!-- Main Checkout Container -->
+    <main class="checkout-container">
+        <!-- Left Column: Shipping & Payment Form -->
+        <div class="checkout-main">
+            <!-- Express Checkout Options -->
+            <div class="express-checkout-box">
+                <span class="express-label">EXPRESS CHECKOUT</span>
+                <div class="express-btn-group">
+                    <button class="btn-express apple-pay" onclick="alert('Apple Pay Express initialized.')">Apple Pay</button>
+                    <button class="btn-express shop-pay" onclick="alert('Shop Pay Express initialized.')">Shop Pay</button>
+                    <button class="btn-express google-pay" onclick="alert('Google Pay Express initialized.')">GPay</button>
+                </div>
+            </div>
+
+            <div class="checkout-divider"><span>OR CONTINUE WITH STANDARD CHECKOUT</span></div>
+
+            <form id="checkout-form" onsubmit="event.preventDefault(); triggerOrderConfirmation();">
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h2>01. CONTACT INFORMATION</h2>
+                    <div class="form-group">
+                        <label>EMAIL ADDRESS</label>
+                        <input type="email" required placeholder="client@atelier.com">
+                    </div>
+                </div>
+
+                <!-- Shipping Address -->
+                <div class="form-section">
+                    <h2>02. SHIPPING ADDRESS</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>FIRST NAME</label>
+                            <input type="text" required placeholder="Alexander">
+                        </div>
+                        <div class="form-group">
+                            <label>LAST NAME</label>
+                            <input type="text" required placeholder="Vane">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>ADDRESS</label>
+                        <input type="text" required placeholder="14 Rue du Faubourg Saint-Honoré">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>CITY</label>
+                            <input type="text" required placeholder="Paris">
+                        </div>
+                        <div class="form-group">
+                            <label>POSTAL CODE</label>
+                            <input type="text" required placeholder="75008">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>COUNTRY / REGION</label>
+                        <select required>
+                            <option value="FR">France</option>
+                            <option value="US">United States</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="JP">Japan</option>
+                            <option value="AE">United Arab Emirates</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Payment Details -->
+                <div class="form-section">
+                    <h2>03. PAYMENT DETAILS</h2>
+                    <div class="form-group">
+                        <label>CARD NUMBER</label>
+                        <input type="text" required placeholder="•••• •••• •••• ••••" maxlength="19">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>EXPIRATION DATE</label>
+                            <input type="text" required placeholder="MM / YY" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label>SECURITY CODE (CVC)</label>
+                            <input type="text" required placeholder="•••" maxlength="4">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-place-order magnetic" data-cursor="COMPLETE">PLACE ORDER & AUTHORIZE PAYMENT</button>
+            </form>
+        </div>
+
+        <!-- Right Column: Live Order Summary -->
+        <aside class="checkout-summary">
+            <h2>ORDER SUMMARY</h2>
+            <div id="checkout-items-list" class="checkout-items-list">
+                <!-- Dynamically populated from localStorage -->
+            </div>
+
+            <div class="promo-box">
+                <input type="text" id="promo-input" placeholder="PROMO / ARCHIVE CODE">
+                <button id="promo-btn" type="button">APPLY</button>
+            </div>
+
+            <div class="summary-breakdown">
+                <div class="summary-line">
+                    <span>SUBTOTAL</span>
+                    <span id="co-subtotal">$0 USD</span>
+                </div>
+                <div class="summary-line">
+                    <span>COMPLIMENTARY SHIPPING</span>
+                    <span class="free-tag">FREE</span>
+                </div>
+                <div class="summary-line">
+                    <span>ESTIMATED TAX (VAT)</span>
+                    <span id="co-tax">$0 USD</span>
+                </div>
+                <div class="summary-line total-line">
+                    <span>TOTAL</span>
+                    <span id="co-total">$0 USD</span>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Order Confirmation Overlay Modal -->
+    <div id="order-modal" class="order-modal">
+        <div class="order-modal-content">
+            <div class="order-check-icon">✓</div>
+            <h2>ORDER CONFIRMED</h2>
+            <p class="order-num">CONFIRMATION CODE: <strong>#VL-894021</strong></p>
+            <p class="order-desc">Thank you for your order. An email receipt with live courier tracking has been dispatched to your inbox.</p>
+            <a href="index.html" class="btn-pdp-primary" style="display:inline-block; margin-top:2rem; text-decoration:none;">RETURN TO ATELIER</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        function triggerOrderConfirmation() {
+            document.getElementById('order-modal').classList.add('active');
+            localStorage.removeItem('velours_cart');
+        }
+    </script>
+</body>
+</html>
